@@ -13,6 +13,7 @@ def interest(A, n, p):
 
     """
     # Write your code here
+    return A * (1 + p / 100)** n
 
 
 def celsius(farenheit):
@@ -24,7 +25,7 @@ def celsius(farenheit):
     Write a function ``celsius(farenheit)`` that implements this formula.
     """
     # Write your code here
-
+    return 5/9 * (farenheit - 32)
 
 def convert_to_usd(pln):
     """
@@ -32,7 +33,7 @@ def convert_to_usd(pln):
     The function should return the amount in USD. Assume 3.85 PLN = 1 USD.
     """
     # Write your code here
-
+    return pln / 3.85
 
 def calc_net(gross, vat=23):
     """
@@ -44,7 +45,7 @@ def calc_net(gross, vat=23):
     The function should return the net price. Think about the calculations you need to do.
     """
     # Write your code here
-
+    return gross / (1 + vat/100)
 
 def get_short_words(text, n=5):
     """
@@ -52,15 +53,22 @@ def get_short_words(text, n=5):
     than _n_ characters. _n_ is a function argument with a default value of 5.
     """
     # Write your code here
-
-
+   
 def initials(name):
     """
     Write a functions `initials`, which takes a person's full name as an argument and converts all
     the names but the last one into initials. Only the names beginning with capital letter should
     be shortened.
     """
-
+    names = name.split()
+    imiona = []
+    for i in names [:-1]:
+        if i[0].isupper():
+            imiona.append(i[0] + ".")
+        else:
+            imiona.append(i)
+    imiona.append(names[-1])
+    return " ".join(imiona) 
 
 def message(data):
     """
@@ -89,7 +97,21 @@ def quadratic_equation(a, b, c):
     You must correctly handle a case of _a_ equal to 0.
     """
     # Write your code here
-
+    delta = b**2 - 4*a*c
+    if a == 0:
+      if b == 0:
+        return ()
+      x1 = -c/b
+      return x1,
+    elif delta > 0:
+        x1 = (-b - delta**0.5) / (2*a)
+        x2 = (-b + delta**0.5) / (2*a)
+        return x1, x2
+    elif delta == 0:
+       x1 = -b/2*a
+       return x1,
+    elif delta < 0:
+        return ()
 
 def dice(num):
     """
